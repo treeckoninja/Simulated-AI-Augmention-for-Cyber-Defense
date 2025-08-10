@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovateCorp AI Cybersecurity Readiness Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+                max-height: 350px;
+            }
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #0077B6;
+            border: 4px solid #CAF0F8;
+        }
+        .timeline-line {
+            position: absolute;
+            left: -22px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #90E0EF;
+        }
+        
+        .mindmap {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+        }
+        .mindmap ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        .mindmap .mindmap-children {
+            padding-left: 40px;
+        }
+        .mindmap li {
+            position: relative;
+            padding-left: 40px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .mindmap-node {
+            background-color: #0077B6;
+            color: #CAF0F8;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        .mindmap-node:hover {
+            background-color: #0096C7;
+        }
+        .mindmap-node.root {
+             background-color: #48CAE4;
+             color: #03045E;
+             font-weight: bold;
+        }
+        .mindmap li::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background-color: #90E0EF;
+        }
+        .mindmap li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #90E0EF;
+        }
+        .mindmap li:last-child::after {
+            height: 50%;
+        }
+        .mindmap > ul > li::before, .mindmap > ul > li::after {
+            display: none;
+        }
+        .mindmap-node .toggle {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-[#03045E] text-white">
+    
+    <nav class="sticky top-0 bg-[#023E8A]/80 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center items-center h-16 space-x-4 md:space-x-8">
+                 <a href="#executive-summary" class="text-[#ADE8F4] hover:text-white transition">Summary</a>
+                 <a href="#why-ai" class="text-[#ADE8F4] hover:text-white transition">Why AI?</a>
+                 <a href="#current-capabilities" class="text-[#ADE8F4] hover:text-white transition">Capabilities</a>
+                 <a href="#risk-analysis" class="text-[#ADE8F4] hover:text-white transition">Risks</a>
+                 <a href="#action-plan" class="text-[#ADE8F4] hover:text-white transition">Action Plan</a>
+                 <a href="#mind-map" class="text-[#ADE8F4] hover:text-white transition">Mind Map</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <header class="text-center mb-16 pt-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#ADE8F4] tracking-tight">AI Cybersecurity Readiness Assessment</h1>
+            <p class="mt-4 text-lg text-[#CAF0F8]">August 10, 2025 | InnovateCorp</p>
+        </header>
+
+        <main>
+            <section id="executive-summary" class="mb-20 scroll-mt-20">
+                <div class="max-w-4xl mx-auto bg-[#023E8A] rounded-2xl shadow-2xl p-8 text-center">
+                    <h2 class="text-3xl font-bold text-[#ADE8F4] mb-4">Executive Summary</h2>
+                    <p class="text-[#CAF0F8] text-lg">
+                        While our defenses are solid against conventional threats, this assessment reveals critical gaps against the next generation of AI-powered attacks. We are currently more reactive than proactive. This report outlines an immediate, targeted initiative to build a resilient, AI-augmented security posture.
+                    </p>
+                </div>
+            </section>
+            
+            <section id="why-ai" class="mb-20 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-center text-[#ADE8F4] mb-12">Why Augment Cybersecurity with AI?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-12">
+                    <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                        <div class="text-6xl mb-4">🚀</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Scale & Speed</h3>
+                        <p class="text-[#CAF0F8]">AI processes billions of data points in real-time, detecting threats at a scale impossible for human teams.</p>
+                    </div>
+                    <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                         <div class="text-6xl mb-4">🎯</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Accuracy & Complexity</h3>
+                        <p class="text-[#CAF0F8]">Identifies subtle, complex attack patterns like zero-day exploits that evade traditional rule-based systems.</p>
+                    </div>
+                    <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                         <div class="text-6xl mb-4">🤖</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Efficiency & Automation</h3>
+                        <p class="text-[#CAF0F8]">Automates repetitive tasks, freeing up human analysts to focus on high-value strategic threat analysis.</p>
+                    </div>
+                </div>
+                <div class="bg-[#0077B6] p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-center text-[#CAF0F8] mb-4">Hyper-Productivity: Time to Complete Task</h3>
+                    <p class="text-[#ADE8F4] mb-6 text-center">This chart demonstrates the radical time reduction for complex security tasks when augmented with AI, shifting from days to minutes.</p>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="hyperProductivityChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="current-capabilities" class="mb-20 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-center text-[#ADE8F4] mb-12">Current Defensive Capabilities</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-[#0077B6] p-6 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-[#CAF0F8] mb-4">Defensive Strengths vs. Weaknesses</h3>
+                        <p class="text-[#ADE8F4] mb-6">Our capabilities show a mix of foundational strengths in endpoint security and significant weaknesses in process automation, leading to underutilized technology and manual burdens.</p>
+                        <div class="chart-container">
+                            <canvas id="strengthsWeaknessesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-[#0077B6] p-6 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-[#CAF0F8] mb-4">Technology Utilization Rate</h3>
+                         <p class="text-[#ADE8F4] mb-6">Key technologies like our SIEM and SOAR platforms are only partially implemented, limiting their potential value and return on investment. This chart illustrates the gap between full potential and current usage.</p>
+                        <div class="chart-container">
+                            <canvas id="techUtilizationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="high-priority-gaps" class="mb-20 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-center text-[#ADE8F4] mb-12">High-Priority Gaps Analysis</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                        <div class="text-6xl mb-4">🛡️</div>
+                        <h3 class="text-xl font-bold text-white mb-2">AI Social Engineering</h3>
+                        <p class="text-[#CAF0F8]">We have no specific defense against AI-generated phishing or deepfakes, leaving executives highly exposed.</p>
+                    </div>
+                    <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                         <div class="text-6xl mb-4">📤</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Uncontrolled LLM Data Exposure</h3>
+                        <p class="text-[#CAF0F8]">No policy or technical controls exist to prevent employees from pasting sensitive data into public AI chatbots.</p>
+                    </div>
+                    <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                         <div class="text-6xl mb-4">⏳</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Future-Threat Blind Spots</h3>
+                        <p class="text-[#CAF0F8]">There is no plan to address adversarial AI attacks or the "harvest now, decrypt later" threat from quantum computing.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="risk-analysis" class="mb-20 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-center text-[#ADE8F4] mb-12">Risk Analysis: Potential Business Impact</h2>
+                <div class="bg-[#0077B6] p-6 rounded-xl shadow-lg">
+                    <p class="text-[#ADE8F4] mb-6 text-center">The identified vulnerabilities translate into significant business risks. This chart compares the risk levels, highlighting the two critical threats that require immediate attention.</p>
+                    <div class="chart-container">
+                        <canvas id="riskAnalysisChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="action-plan" class="mb-20 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-center text-[#ADE8F4] mb-12">Action Plan & Recommendations</h2>
+                <div class="max-w-4xl mx-auto relative pl-10">
+                    <div class="timeline-line"></div>
+                    <div class="space-y-12">
+                        <div class="timeline-item relative">
+                            <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                                <span class="absolute -top-3 -left-3 bg-[#48CAE4] text-[#03045E] text-xs font-bold px-3 py-1 rounded-full">30 Days</span>
+                                <h3 class="text-xl font-bold text-white mb-2">Deploy LLM Governance</h3>
+                                <p class="text-[#CAF0F8]">Draft and enforce a clear Acceptable Use Policy for AI tools. Configure DLP rules to monitor and block sensitive data sharing with public LLMs.</p>
+                                <div class="mt-3 text-sm font-semibold text-[#ADE8F4]">Priority: <span class="text-red-400">CRITICAL</span></div>
+                            </div>
+                        </div>
+                        <div class="timeline-item relative">
+                            <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                                <span class="absolute -top-3 -left-3 bg-[#48CAE4] text-[#03045E] text-xs font-bold px-3 py-1 rounded-full">90 Days</span>
+                                <h3 class="text-xl font-bold text-white mb-2">Pilot Deepfake Detection Tech</h3>
+                                <p class="text-[#CAF0F8]">Engage with vendors to conduct a proof-of-concept for a solution to detect deepfake audio/video, focused on protecting key executives.</p>
+                                <div class="mt-3 text-sm font-semibold text-[#ADE8F4]">Priority: <span class="text-orange-400">HIGH</span></div>
+                            </div>
+                        </div>
+                        <div class="timeline-item relative">
+                            <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                                <span class="absolute -top-3 -left-3 bg-[#48CAE4] text-[#03045E] text-xs font-bold px-3 py-1 rounded-full">6 Months</span>
+                                <h3 class="text-xl font-bold text-white mb-2">Automate Threat Intelligence</h3>
+                                <p class="text-[#CAF0F8]">Evaluate and select an AI-powered platform to automate the ingestion, correlation, and analysis of threat intelligence feeds.</p>
+                                <div class="mt-3 text-sm font-semibold text-[#ADE8F4]">Priority: <span class="text-orange-400">HIGH</span></div>
+                            </div>
+                        </div>
+                        <div class="timeline-item relative">
+                             <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                                <span class="absolute -top-3 -left-3 bg-[#48CAE4] text-[#03045E] text-xs font-bold px-3 py-1 rounded-full">6 Months</span>
+                                <h3 class="text-xl font-bold text-white mb-2">Initiate Quantum Risk Project</h3>
+                                <p class="text-[#CAF0F8]">Task the architecture team to inventory systems dependent on vulnerable cryptography and develop a roadmap for migrating to PQC standards.</p>
+                                <div class="mt-3 text-sm font-semibold text-[#ADE8F4]">Priority: <span class="text-yellow-400">MEDIUM</span></div>
+                            </div>
+                        </div>
+                         <div class="timeline-item relative">
+                             <div class="bg-[#0096C7] p-6 rounded-xl shadow-lg">
+                                <span class="absolute -top-3 -left-3 bg-[#48CAE4] text-[#03045E] text-xs font-bold px-3 py-1 rounded-full">Ongoing</span>
+                                <h3 class="text-xl font-bold text-white mb-2">Update AI Security Standards</h3>
+                                <p class="text-[#CAF0F8]">Mandate that all new AI security tools provide Explainable AI (XAI) features and that all internal AI models undergo adversarial testing.</p>
+                                <div class="mt-3 text-sm font-semibold text-[#ADE8F4]">Priority: <span class="text-yellow-400">MEDIUM</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="mind-map" class="mb-20 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-center text-[#ADE8F4] mb-12">Explore the Concepts: Interactive Mind Map</h2>
+                <div class="mindmap">
+                    <ul>
+                        <li>
+                            <div class="mindmap-node root">AI in Cybersecurity</div>
+                            <ul class="mindmap-children">
+                                <li>
+                                    <div class="mindmap-node" data-children="true">Dual Role: Weapon & Shield<span class="toggle">+</span></div>
+                                    <ul class="mindmap-children hidden">
+                                        <li><div class="mindmap-node">AI as a Shield (Defense)</div></li>
+                                        <li><div class="mindmap-node">AI as a Weapon (Offense)</div></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="mindmap-node" data-children="true">Key Benefits of AI<span class="toggle">+</span></div>
+                                     <ul class="mindmap-children hidden">
+                                        <li><div class="mindmap-node">Enhanced Threat Detection</div></li>
+                                        <li><div class="mindmap-node">Automated Incident Response</div></li>
+                                        <li><div class="mindmap-node">Proactive Threat Hunting</div></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="mindmap-node" data-children="true">Challenges & Limitations<span class="toggle">+</span></div>
+                                    <ul class="mindmap-children hidden">
+                                        <li><div class="mindmap-node">Data Bias & Fairness</div></li>
+                                        <li><div class="mindmap-node">The "Black Box" Problem</div></li>
+                                        <li><div class="mindmap-node">Cybersecurity Skills Gap</div></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="mindmap-node">AI in Digital Forensics</div>
+                                </li>
+                                <li>
+                                    <div class="mindmap-node" data-children="true">Best Practices & Strategies<span class="toggle">+</span></div>
+                                    <ul class="mindmap-children hidden">
+                                        <li><div class="mindmap-node">Robust Governance & Policy</div></li>
+                                        <li><div class="mindmap-node">Human-AI Collaboration</div></li>
+                                        <li><div class="mindmap-node">Proactive Quantum Readiness</div></li>
+                                    </ul>
+                                </li>
+                                 <li>
+                                    <div class="mindmap-node">Future of AI in Cybersecurity</div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-16 border-t border-[#0077B6] pt-8">
+            <p class="text-[#ADE8F4]">&copy; 2025 InnovateCorp. All rights reserved.</p>
+            <p class="text-sm text-[#90E0EF] mt-2">All data presented in this infographic is simulated for illustrative purposes and is entirely fictitious.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const brilliantBlues = {
+            primary: '#0077B6',
+            secondary: '#00B4D8',
+            accent: '#ADE8F4',
+            light: '#CAF0F8',
+            dark: '#03045E',
+            text: '#FFFFFF',
+            critical: '#d00000',
+            high: '#ffba08',
+            medium: '#f48c06'
+        };
+
+        const chartFontColor = brilliantBlues.light;
+        Chart.defaults.color = chartFontColor;
+        Chart.defaults.borderColor = 'rgba(202, 240, 248, 0.2)';
+
+        function wrapLabel(label, maxWidth) {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length < maxWidth) {
+                    currentLine += (currentLine ? ' ' : '') + word;
+                } else {
+                    lines.push(currentLine);
+                    currentLine = word;
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine);
+            }
+            return lines;
+        }
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+        
+        const hyperProductivityCtx = document.getElementById('hyperProductivityChart').getContext('2d');
+        new Chart(hyperProductivityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Threat Report Analysis', 'Infographic Creation'],
+                datasets: [{
+                    label: 'Manual (Hours)',
+                    data: [8, 40],
+                    backgroundColor: brilliantBlues.high,
+                    borderColor: brilliantBlues.high,
+                    borderWidth: 1
+                }, {
+                    label: 'With AI (Hours)',
+                    data: [0.1, 0.25],
+                    backgroundColor: brilliantBlues.secondary,
+                    borderColor: brilliantBlues.secondary,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        type: 'logarithmic',
+                        ticks: {
+                            callback: function(value, index, values) {
+                                if (value === 1 || value === 10 || value === 0.1 || value === 0.25 || value === 8 || value === 40) {
+                                    return value + ' hrs';
+                                }
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const strengthsWeaknessesCtx = document.getElementById('strengthsWeaknessesChart').getContext('2d');
+        new Chart(strengthsWeaknessesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Solid EDR Foundation', 'Effective UEBA', ['Underutilized', 'SIEM/SOAR'], ['Manual Threat', 'Intel & Forensics']],
+                datasets: [{
+                    label: 'Capability Status',
+                    data: [85, 75, 40, 25],
+                    backgroundColor: [brilliantBlues.secondary, brilliantBlues.secondary, brilliantBlues.high, brilliantBlues.critical],
+                    borderColor: [brilliantBlues.accent, brilliantBlues.accent, brilliantBlues.high, brilliantBlues.critical],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%'
+                            }
+                        }
+                    },
+                    y: {
+                        ticks: {
+                           font: {
+                                size: 12
+                           }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const techUtilizationCtx = document.getElementById('techUtilizationChart').getContext('2d');
+        new Chart(techUtilizationCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Utilized Features', 'Underutilized/Unused'],
+                datasets: [{
+                    data: [40, 60],
+                    backgroundColor: [brilliantBlues.secondary, brilliantBlues.critical],
+                    borderColor: brilliantBlues.dark,
+                    borderWidth: 4,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const riskAnalysisCtx = document.getElementById('riskAnalysisChart').getContext('2d');
+        new Chart(riskAnalysisCtx, {
+            type: 'radar',
+            data: {
+                labels: [wrapLabel('AI Phishing & Deepfakes', 16), wrapLabel('Uncontrolled LLM Data Leakage', 16), wrapLabel('Stagnant Automation', 16), wrapLabel('Quantum & Adversarial AI', 16)],
+                datasets: [{
+                    label: 'Risk Level (1-10)',
+                    data: [10, 10, 7, 8],
+                    fill: true,
+                    backgroundColor: 'rgba(0, 180, 216, 0.4)',
+                    borderColor: brilliantBlues.secondary,
+                    pointBackgroundColor: brilliantBlues.secondary,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: brilliantBlues.secondary
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(202, 240, 248, 0.2)'
+                        },
+                        grid: {
+                            color: 'rgba(202, 240, 248, 0.2)'
+                        },
+                        pointLabels: {
+                            color: chartFontColor,
+                             font: {
+                                size: 12
+                            }
+                        },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            color: chartFontColor,
+                            stepSize: 2
+                        },
+                        min: 0,
+                        max: 10
+                    }
+                },
+                 plugins: {
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        document.querySelectorAll('.mindmap-node[data-children="true"]').forEach(node => {
+            node.addEventListener('click', () => {
+                const children = node.nextElementSibling;
+                const toggle = node.querySelector('.toggle');
+                if (children) {
+                    children.classList.toggle('hidden');
+                    if (children.classList.contains('hidden')) {
+                        toggle.textContent = '+';
+                    } else {
+                        toggle.textContent = '-';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
